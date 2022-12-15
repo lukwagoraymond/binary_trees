@@ -14,9 +14,12 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	count++;
-	count += binary_tree_size(tree->left);
-	count += binary_tree_size(tree->right);
+	if (tree)
+	{
+		count++;
+		count += binary_tree_size(tree->left);
+		count += binary_tree_size(tree->right);
+	}
 
 	return (count);
 }
