@@ -9,11 +9,11 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 {
 	binary_tree_t *tmp;
 
-	if (!tree || !tree->right)
+	if (!tree || !tree->left)
 		return (NULL);
 
 	tmp = tree->left;
-	tree->right = tmp->right;
+	tree->left = tmp->left;
 
 	if (tmp->right)
 		tmp->right->parent = tree;
