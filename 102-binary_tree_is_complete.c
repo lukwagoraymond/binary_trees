@@ -35,6 +35,6 @@ int bt_complete(const binary_tree_t *tree, size_t index, size_t size)
 	if (index >= size)
 		return (0);
 
-	return (btic_helper(tree->left, 2 * index + 1, size) &&
-		btic_helper(tree->right, 2 * index + 2, size));
+	return (bt_complete(tree->left, 2 * index + 1, size) &&
+		bt_complete(tree->right, 2 * index + 2, size));
 }
