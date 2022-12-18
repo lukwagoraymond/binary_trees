@@ -18,20 +18,20 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 /**
 * is_bst_helper - Checks if a binary tree is a valid binary search tree
 * @tree: A pointer to the root node of the tree to check
-* @low: The value of the smallest node visited thus far
-* @high: The value of the largest node visited thus far
+* @lo: The value of the smallest node visited thus far
+* @hi: The value of the largest node visited thus far
 *
 * Return: If the tree is a valid BST, (1) otherwise (0)
 */
-int is_bst_helper(const binary_tree_t *tree, int low, int high)
+int is_bst_helper(const binary_tree_t *tree, int lo, int hi)
 {
-	if (tree)
-	{
-		if (tree->n < low || tree->n > hi)
-			return (0);
-		return (is_bst_helper(tree->left, low, tree->n - 1) &&
-				is_bst_helper(tree->right, tree->n + 1, high));
-	}
-	return (1);
+	if (!tree)
+		return (1);
+
+	if (tree->n < lo || tree->n > hi)
+		return (0);
+
+	return (is_bst_helper(tree->left, lo, tree->n - 1) &&
+				is_bst_helper(tree->right, tree->n + 1, hi));
 	/* -1 and +1 stem from "There must be no duplicate values" req */
 }
