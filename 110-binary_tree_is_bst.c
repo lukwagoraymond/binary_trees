@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-#include "limits.h"
 
 /**
 * binary_tree_is_bst - Checks if a binary tree is a valid
@@ -31,7 +30,8 @@ int is_bst_helper(const binary_tree_t *tree, int low, int high)
 		if (tree->n < low || tree->n > hi)
 			return (0);
 		return (is_bst_helper(tree->left, low, tree->n - 1) &&
-		is_bst_helper(tree->right, tree->n + 1, high));
+				is_bst_helper(tree->right, tree->n + 1, high));
 	}
 	return (1);
+	/* -1 and +1 stem from "There must be no duplicate values" req */
 }
