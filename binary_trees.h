@@ -58,5 +58,7 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 void level_based_print(const binary_tree_t *tree,
 void (*func)(int), size_t level);
 int bt_complete(const binary_tree_t *tree, size_t index, size_t size);
+int binary_tree_is_bst(const binary_tree_t *tree);
+int is_bst_helper(const binary_tree_t *tree, int low, int high);
 
 #endif
